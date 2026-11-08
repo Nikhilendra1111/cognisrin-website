@@ -19,35 +19,36 @@ export const FounderPhotoPlaceholder: React.FC<Props> = ({
   const [imgError, setImgError] = useState(false);
 
   const sizeClasses = {
-    sm: 'w-24 h-24',
-    md: 'w-56 h-72',
-    lg: 'w-80 h-[450px] sm:w-[350px] sm:h-[480px]',
-    hero: 'w-80 h-[480px] sm:w-[380px] sm:h-[510px]'
+    sm: 'w-24',
+    md: 'w-64',
+    lg: 'w-full max-w-[340px] sm:max-w-[370px]',
+    hero: 'w-full max-w-[360px] sm:max-w-[400px]'
   };
 
   const effectivePhotoUrl = photoUrl && photoUrl.trim() !== '' ? photoUrl : '/images/founder-portrait.jpg';
 
   if (effectivePhotoUrl && !imgError) {
     return (
-      <div 
-        className={`relative overflow-hidden rounded-[32px] border border-[#d2d2d7] shadow-2xl bg-gradient-to-b from-[#ffffff] via-[#f5f5f7] to-[#e8e8ed] group transition-all duration-300 hover:shadow-3xl hover:scale-[1.01] ${sizeClasses[size]} ${className}`}
-      >
-        <img
-          src={effectivePhotoUrl}
-          alt={`Official portrait of ${fullName}, ${designation}`}
-          onError={() => setImgError(true)}
-          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-          loading="eager"
-        />
+      <div className={`flex flex-col items-center ${sizeClasses[size]} ${className}`}>
+        {/* Exact Original Photo: zero blur, zero filter, natural presentation */}
+        <div className="w-full rounded-[28px] overflow-hidden border-2 border-[#d2d2d7] shadow-2xl bg-white transition-all duration-300 hover:shadow-3xl hover:scale-[1.01]">
+          <img
+            src={effectivePhotoUrl}
+            alt={`Official portrait of ${fullName}, ${designation}`}
+            onError={() => setImgError(true)}
+            className="w-full h-auto object-cover block"
+            loading="eager"
+          />
+        </div>
 
-        {/* Elegant Apple gradient vignette badge */}
-        <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-white via-white/90 to-transparent pt-12 pb-5 px-6 backdrop-blur-[2px]">
-          <div className="flex items-center gap-1.5 text-[10px] uppercase font-mono tracking-widest text-[#0066cc] font-semibold">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#0071e3] animate-pulse" />
+        {/* Clean Founder Title Badge underneath - zero blur on photo */}
+        <div className="mt-4 text-center space-y-1">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f5f5f7] border border-[#d2d2d7] text-[10px] font-mono uppercase tracking-widest text-[#0066cc] font-semibold">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0071e3]" />
             <span>FOUNDER & PIONEER</span>
           </div>
-          <h4 className="text-xl font-bold text-[#1d1d1f] tracking-tight mt-0.5">{fullName}</h4>
-          <p className="text-xs text-[#86868b] font-medium leading-snug">{designation}</p>
+          <h4 className="text-xl font-bold text-[#1d1d1f] tracking-tight">{fullName}</h4>
+          <p className="text-xs text-[#86868b] font-medium">{designation}</p>
         </div>
       </div>
     );

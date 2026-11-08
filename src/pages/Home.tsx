@@ -34,10 +34,24 @@ export const Home: React.FC = () => {
       <section className="relative min-h-[82vh] flex items-center justify-center pt-20 pb-20 px-4 sm:px-6 lg:px-8 text-center">
         <div className="relative z-10 max-w-5xl mx-auto space-y-8">
           
-          {/* Apple Pill Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#f5f5f7] border border-[#d2d2d7] text-xs font-normal text-[#1d1d1f]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#0071e3] animate-ping" />
-            <span>FOUNDED & PIONEERED BY NIKHILENDRA SRINIVAS</span>
+          {/* BIG PROMINENT ORGANISATION LOGO ON SITE LOAD */}
+          <div className="flex flex-col items-center justify-center gap-4 pt-2">
+            <div className="relative group">
+              <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-full bg-gradient-to-b from-white to-[#f5f5f7] p-2.5 border-2 border-[#d2d2d7] shadow-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-105 group-hover:shadow-3xl">
+                <img
+                  src="/images/cognisrin-logo.png"
+                  alt="COGNISRIN Official Organisation Emblem"
+                  className="w-full h-full rounded-full object-contain"
+                  loading="eager"
+                />
+              </div>
+            </div>
+
+            {/* Apple Pill Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#f5f5f7] border border-[#d2d2d7] text-xs font-normal text-[#1d1d1f]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0071e3] animate-ping" />
+              <span>FOUNDED & PIONEERED BY NIKHILENDRA SRINIVAS</span>
+            </div>
           </div>
 
           {/* Main Headline */}
