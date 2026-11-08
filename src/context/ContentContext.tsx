@@ -72,8 +72,15 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
         const parsed: Publication[] = JSON.parse(stored);
         const merged = parsed.map(p => {
           const init = initialPublications.find(ip => ip.id === p.id);
-          if (init && (!p.amazonPurchaseUrl || p.amazonPurchaseUrl.trim() === '')) {
-            return { ...p, amazonPurchaseUrl: init.amazonPurchaseUrl };
+          if (init) {
+            let updated = { ...p };
+            if (!updated.amazonPurchaseUrl || updated.amazonPurchaseUrl.trim() === '') {
+              updated.amazonPurchaseUrl = init.amazonPurchaseUrl;
+            }
+            if (!updated.coverImageUrl || updated.coverImageUrl.trim() === '') {
+              updated.coverImageUrl = init.coverImageUrl;
+            }
+            return updated;
           }
           return p;
         });
