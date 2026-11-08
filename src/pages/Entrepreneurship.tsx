@@ -7,7 +7,9 @@ import {
   GraduationCap, 
   Lightbulb, 
   ArrowRight,
-  ChevronRight
+  ChevronRight,
+  ShoppingBag,
+  ExternalLink
 } from 'lucide-react';
 import { useContent } from '../context/ContentContext';
 import { SEOHead } from '../components/common/SEOHead';

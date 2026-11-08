@@ -5,7 +5,9 @@ import {
   ChevronRight,
   Atom,
   Briefcase,
-  BookOpen
+  BookOpen,
+  ShoppingBag,
+  ExternalLink
 } from 'lucide-react';
 import { useContent } from '../context/ContentContext';
 import { SEOHead } from '../components/common/SEOHead';
