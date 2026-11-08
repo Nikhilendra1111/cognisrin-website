@@ -175,10 +175,22 @@ export const Founder: React.FC = () => {
                   <span className="text-[10px] font-mono uppercase text-[#0066cc] font-semibold">{book.category}</span>
                   <h4 className="text-lg font-semibold text-[#1d1d1f]">{book.title}</h4>
                   <p className="text-xs text-[#86868b] line-clamp-3">{book.description}</p>
-                  <div className="pt-2">
+                  <div className="pt-2 flex flex-wrap items-center gap-3">
                     <Link to="/publications" className="apple-link text-xs">
                       View Book Details <ChevronRight className="w-3.5 h-3.5" />
                     </Link>
+                    {book.amazonPurchaseUrl && (
+                      <a
+                        href={book.amazonPurchaseUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="apple-btn-primary px-3 py-1.5 text-xs font-medium inline-flex items-center gap-1"
+                      >
+                        <ShoppingBag className="w-3 h-3" />
+                        <span>Amazon</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>

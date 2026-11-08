@@ -7,7 +7,8 @@ import {
   ArrowRight, 
   ChevronRight,
   ExternalLink,
-  BookOpen
+  BookOpen,
+  ShoppingBag
 } from 'lucide-react';
 import { useContent } from '../context/ContentContext';
 import { SEOHead } from '../components/common/SEOHead';
@@ -328,17 +329,26 @@ export const Home: React.FC = () => {
                 </p>
               </div>
 
-              <div className="w-full pt-4 border-t border-[rgba(0,0,0,0.06)] flex items-center justify-between">
-                <span className="text-xs text-[#86868b] font-mono">
-                  {book.publicationDate}
-                </span>
+              <div className="w-full pt-4 border-t border-[rgba(0,0,0,0.06)] flex flex-col sm:flex-row items-center justify-between gap-3">
                 <Link
                   to="/publications"
-                  className="apple-link font-medium"
+                  className="apple-link font-medium text-xs"
                 >
                   <span>Book Details</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  <ChevronRight className="w-3.5 h-3.5" />
                 </Link>
+                {book.amazonPurchaseUrl && (
+                  <a
+                    href={book.amazonPurchaseUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="apple-btn-primary px-4 py-2 text-xs font-medium inline-flex items-center gap-1.5 w-full sm:w-auto justify-center"
+                  >
+                    <ShoppingBag className="w-3.5 h-3.5" />
+                    <span>Purchase on Amazon</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                )}
               </div>
             </div>
           ))}

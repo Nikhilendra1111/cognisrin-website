@@ -68,7 +68,19 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const [publications, setPublications] = useState<Publication[]>(() => {
     try {
       const stored = localStorage.getItem(STORAGE_KEYS.PUBLICATIONS);
-      return stored ? JSON.parse(stored) : initialPublications;
+      if (stored) {
+        const parsed: Publication[] = JSON.parse(stored);
+        const merged = parsed.map(p => {
+          const init = initialPublications.find(ip => ip.id === p.id);
+          if (init && (!p.amazonPurchaseUrl || p.amazonPurchaseUrl.trim() === '')) {
+            return { ...p, amazonPurchaseUrl: init.amazonPurchaseUrl };
+          }
+          return p;
+        });
+        localStorage.setItem(STORAGE_KEYS.PUBLICATIONS, JSON.stringify(merged));
+        return merged;
+      }
+      return initialPublications;
     } catch {
       return initialPublications;
     }

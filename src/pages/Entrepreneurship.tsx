@@ -127,13 +127,25 @@ export const Entrepreneurship: React.FC = () => {
             </p>
           </div>
 
-          <Link
-            to="/publications"
-            className="apple-btn-primary px-6 py-3 text-xs font-medium flex-shrink-0"
-          >
-            <span>Explore Book & Amazon Availability</span>
-            <ChevronRight className="w-4 h-4" />
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
+            <a
+              href="https://www.amazon.in/Entrepreneur-Genesis-Nikhilendra-srinivas-ebook/dp/B0DV8X9X23/ref=sr_1_2?crid=2YBKIXZFEKYBQ&dib=eyJ2IjoiMSJ9.QUCP4AsY-08SNTk6gQQjZMTyN5dkUxdQklmxoNAVUrc.cM18YsBsji1Di8mlz-7rFAZlChg2dBsAToIselcBHX4&dib_tag=se&keywords=Nikhilendra+srinivas&qid=1794121248&sprefix=nikhilendra+sriniva%2Caps%2C272&sr=8-2"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="apple-btn-primary px-6 py-3 text-xs font-medium inline-flex items-center gap-2"
+            >
+              <ShoppingBag className="w-4 h-4" />
+              <span>Purchase on Amazon</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+            <Link
+              to="/publications"
+              className="apple-btn-secondary px-5 py-3 text-xs font-medium"
+            >
+              <span>All Publications</span>
+              <ChevronRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
 
       </section>
