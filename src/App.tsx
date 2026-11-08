@@ -67,6 +67,7 @@ export const App: React.FC = () => {
                 <Route path="/dashboard" element={<Dashboard />} />
 
                 {/* Secure Administrator Dashboard */}
+                <Route path="/portal" element={<AdminDashboard />} />
                 <Route path="/admin" element={<AdminDashboard />} />
 
                 {/* Legal & Trust */}

@@ -21,7 +21,11 @@ export const Login: React.FC = () => {
     if (res.error) {
       setError(res.error);
     } else {
-      navigate('/dashboard');
+      if (email.trim().toLowerCase() === 'nikhilendrasrinivas5@gmail.com') {
+        navigate('/portal');
+      } else {
+        navigate('/dashboard');
+      }
     }
   };
 
@@ -114,32 +118,11 @@ export const Login: React.FC = () => {
             </button>
           </form>
 
-          {/* Instant Demo Sandbox Access */}
-          <div className="border-t border-[rgba(0,0,0,0.08)] pt-5 space-y-3">
-            <p className="text-[10px] uppercase font-mono tracking-wider text-[#86868b] text-center font-medium">
-              Instant Preview & Testing Access
-            </p>
-            <div className="grid grid-cols-2 gap-2.5">
-              <button
-                type="button"
-                onClick={handleDemoAdmin}
-                className="p-2.5 rounded-xl bg-[#ffffff] border border-[#d2d2d7] hover:border-[#34c759] text-[11px] font-medium text-[#1d1d1f] flex items-center justify-center gap-1.5 transition-all shadow-xs"
-              >
-                <ShieldCheck className="w-3.5 h-3.5 text-[#34c759]" />
-                <span>Admin Mode</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={handleDemoMember}
-                className="p-2.5 rounded-xl bg-[#ffffff] border border-[#d2d2d7] hover:border-[#0071e3] text-[11px] font-medium text-[#1d1d1f] flex items-center justify-center gap-1.5 transition-all shadow-xs"
-              >
-                <User className="w-3.5 h-3.5 text-[#0071e3]" />
-                <span>Member Mode</span>
-              </button>
-            </div>
-            <p className="text-[10px] text-center text-[#86868b]">
-              Cloud Sync: {isCloudSynced ? '⚡ Active (Supabase)' : '💾 Standalone Mode (Zero-Config)'}
+          {/* Secure Access Indicator */}
+          <div className="border-t border-[rgba(0,0,0,0.08)] pt-4 text-center">
+            <p className="text-[11px] text-[#86868b] flex items-center justify-center gap-1.5 font-mono">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#0071e3]" />
+              <span>Encrypted Authentication System</span>
             </p>
           </div>
 

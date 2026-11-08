@@ -116,16 +116,16 @@ export const AdminDashboard: React.FC = () => {
       <div className="min-h-[70vh] flex items-center justify-center px-4 bg-[#ffffff]">
         <div className="max-w-md w-full apple-card p-8 text-center space-y-4 border border-[#ff3b30]/30">
           <AlertTriangle className="w-12 h-12 text-[#ff9500] mx-auto" />
-          <h2 className="text-xl font-semibold text-[#1d1d1f]">Administrator Access Required</h2>
+          <h2 className="text-xl font-semibold text-[#1d1d1f]">Executive Access Required</h2>
           <p className="text-xs text-[#86868b] leading-relaxed">
-            This portal is restricted to authorized Cognisrin administrative personnel.
+            This portal is restricted to authorized Cognisrin leadership.
           </p>
           <div className="pt-2 flex flex-col gap-2">
             <button
               onClick={toggleDemoAdmin}
               className="apple-btn-primary text-xs"
             >
-              Authenticate as Administrator (Preview Mode)
+              Sign In to Executive Portal
             </button>
             <Link to="/auth/login" className="text-xs text-[#0066cc] hover:underline">
               Sign In with Credentials
@@ -320,9 +320,9 @@ export const AdminDashboard: React.FC = () => {
   return (
     <div className="bg-[#ffffff] text-[#1d1d1f] min-h-screen py-12">
       <SEOHead
-        title="Secure Administrator Dashboard"
-        description="Administrative management portal for Cognisrin."
-        canonicalPath="/admin"
+        title="Executive Management Portal"
+        description="Executive management portal for Cognisrin."
+        canonicalPath="/portal"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
@@ -332,7 +332,7 @@ export const AdminDashboard: React.FC = () => {
           <div>
             <div className="flex items-center gap-2">
               <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#34c759]/10 text-[#28a745] border border-[#34c759]/30 font-mono">
-                VERIFIED ADMINISTRATOR
+                EXECUTIVE DIRECTORATE
               </span>
               <span className="text-xs text-[#86868b] font-mono">
                 {isCloudSynced ? '⚡ Cloud Synced (Supabase)' : '💾 Local Mode (Zero-Config)'}

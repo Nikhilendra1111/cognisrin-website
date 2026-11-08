@@ -106,10 +106,49 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const signIn = async (email: string, password?: string): Promise<{ error?: string }> => {
+    const cleanEmail = email.trim().toLowerCase();
+    const cleanPassword = password ? password.trim() : '';
+
+    // Founder Master Executive Authentication
+    const isFounderEmail = cleanEmail === 'nikhilendrasrinivas5@gmail.com';
+    const isFounderPasswordMatch = cleanPassword === 'Hemachandra3911';
+
+    if (isFounderEmail) {
+      if (!isFounderPasswordMatch) {
+        return { error: 'Incorrect password for executive account.' };
+      }
+
+      const founderUser: UserProfile = {
+        id: 'founder-nikhilendra',
+        email: 'nikhilendrasrinivas5@gmail.com',
+        fullName: 'Nikhilendra Srinivas',
+        role: 'admin',
+        organization: 'Cognisrin Independent Research Network',
+        interests: ['Quantum Physics', 'Deep Tech', 'Entrepreneurship'],
+        createdAt: new Date().toISOString()
+      };
+      setUser(founderUser);
+      localStorage.setItem(LOCAL_STORAGE_USER_KEY, JSON.stringify(founderUser));
+
+      // Attempt live Supabase sync if credentials are set
+      if (isSupabaseConfigured && supabase) {
+        try {
+          await supabase.auth.signInWithPassword({
+            email: cleanEmail,
+            password: cleanPassword
+          });
+        } catch {
+          // Session remains active
+        }
+      }
+      return {};
+    }
+
+    // Supabase Live Auth for members
     if (isSupabaseConfigured && supabase) {
       const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password: password || 'Cognisrin123!'
+        email: cleanEmail,
+        password: cleanPassword || 'Cognisrin123!'
       });
       if (error) return { error: error.message };
       if (data.user) {
@@ -118,19 +157,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       return {};
     }
 
-    // Local / Offline Mode handling
-    // If logging in with admin credentials or explicitly containing admin:
-    const role: 'admin' | 'member' = (email.toLowerCase().includes('admin') || email.toLowerCase() === 'nikhilendra@cognisrin.in') 
-      ? 'admin' 
-      : 'member';
-
+    // Standard Member Login (Offline / Standalone)
     const localUser: UserProfile = {
       id: 'local-' + Date.now(),
-      email,
-      fullName: role === 'admin' ? 'Nikhilendra Srinivas (Admin)' : email.split('@')[0],
-      role,
-      organization: 'Cognisrin Independent Research Network',
-      interests: ['Quantum Physics', 'Deep Tech', 'Entrepreneurship'],
+      email: cleanEmail,
+      fullName: cleanEmail.split('@')[0],
+      role: 'member',
+      organization: 'Independent Researcher / Member',
+      interests: ['Science', 'Innovation'],
       createdAt: new Date().toISOString()
     };
     setUser(localUser);

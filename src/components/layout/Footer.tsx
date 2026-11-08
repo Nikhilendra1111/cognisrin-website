@@ -94,7 +94,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2 text-[#6e6e73]">
               <li><Link to="/contact" className="hover:text-[#1d1d1f] transition-colors">Official Contact</Link></li>
               <li><Link to="/auth/login" className="hover:text-[#1d1d1f] transition-colors">Member Portal</Link></li>
-              <li><Link to="/admin" className="hover:text-[#28a745] transition-colors flex items-center gap-1"><span>Admin Access</span><ShieldCheck className="w-3 h-3 text-[#28a745]" /></Link></li>
+              <li><Link to="/portal" className="hover:text-[#1d1d1f] transition-colors">Executive Portal</Link></li>
               <li><Link to="/privacy-policy" className="hover:text-[#1d1d1f] transition-colors">Privacy Policy</Link></li>
               <li><Link to="/terms-and-conditions" className="hover:text-[#1d1d1f] transition-colors">Terms of Use</Link></li>
             </ul>

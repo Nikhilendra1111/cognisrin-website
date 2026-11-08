@@ -84,9 +84,9 @@ export const Dashboard: React.FC = () => {
 
           <div className="flex items-center gap-3">
             {isAdmin && (
-              <Link to="/admin" className="apple-btn-primary px-5 py-2 text-xs">
+              <Link to="/portal" className="apple-btn-primary px-5 py-2 text-xs">
                 <ShieldCheck className="w-3.5 h-3.5" />
-                <span>Admin Console</span>
+                <span>Management Portal</span>
               </Link>
             )}
             <button

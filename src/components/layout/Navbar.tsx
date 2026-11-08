@@ -103,11 +103,11 @@ export const Navbar: React.FC = () => {
             <div className="hidden lg:flex items-center space-x-2">
               {isAdmin && (
                 <Link
-                  to="/admin"
+                  to="/portal"
                   className="px-2.5 py-1 rounded-full text-xs font-medium bg-[#34c759]/10 text-[#28a745] border border-[#34c759]/30 hover:bg-[#34c759]/20 transition-colors flex items-center gap-1.5"
                 >
                   <ShieldCheck className="w-3.5 h-3.5" />
-                  <span>Admin</span>
+                  <span>Portal</span>
                 </Link>
               )}
 
@@ -141,7 +141,7 @@ export const Navbar: React.FC = () => {
             <div className="lg:hidden flex items-center gap-2">
               {isAdmin && (
                 <Link
-                  to="/admin"
+                  to="/portal"
                   className="p-1 rounded-full bg-[#34c759]/10 text-[#28a745] border border-[#34c759]/20"
                 >
                   <ShieldCheck className="w-3.5 h-3.5" />
