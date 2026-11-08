@@ -13,9 +13,11 @@ export const Footer: React.FC = () => {
       <div className="border-b border-[#d2d2d7] py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4 text-center md:text-left">
-            <div className="w-11 h-11 rounded-2xl bg-[#ffffff] border border-[#d2d2d7] shadow-sm flex items-center justify-center text-[#1d1d1f] font-mono font-bold text-sm">
-              NS
-            </div>
+            <img
+              src="/images/founder-avatar.jpg"
+              alt={founderProfile.fullName}
+              className="w-12 h-12 rounded-full border border-[#d2d2d7] object-cover shadow-sm"
+            />
             <div>
               <p className="text-[10px] uppercase tracking-widest text-[#0066cc] font-semibold">
                 Pioneering Leadership

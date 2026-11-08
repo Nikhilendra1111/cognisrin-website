@@ -71,10 +71,12 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center justify-between h-12">
             
             {/* Apple Logo */}
-            <Link to="/" className="flex items-center gap-2 group">
-              <div className="w-6 h-6 rounded-md bg-[#f5f5f7] border border-[rgba(0,0,0,0.08)] flex items-center justify-center">
-                <Atom className="w-3.5 h-3.5 text-[#0071e3] group-hover:rotate-180 transition-transform duration-700" />
-              </div>
+            <Link to="/" className="flex items-center gap-2.5 group">
+              <img
+                src="/images/cognisrin-logo.png"
+                alt="COGNISRIN Official Logo"
+                className="w-8 h-8 rounded-full border border-[rgba(0,0,0,0.12)] object-contain shadow-xs group-hover:scale-105 transition-transform"
+              />
               <span className="text-sm font-semibold tracking-tight text-[#1d1d1f] font-mono">
                 COGNISRIN
               </span>

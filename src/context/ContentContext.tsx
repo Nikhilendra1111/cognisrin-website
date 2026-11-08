@@ -59,7 +59,15 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const [founderProfile, setFounderProfile] = useState<FounderProfile>(() => {
     try {
       const stored = localStorage.getItem(STORAGE_KEYS.FOUNDER);
-      return stored ? JSON.parse(stored) : initialFounderProfile;
+      if (stored) {
+        const parsed: FounderProfile = JSON.parse(stored);
+        if (!parsed.photoUrl || parsed.photoUrl.trim() === '') {
+          parsed.photoUrl = initialFounderProfile.photoUrl;
+          localStorage.setItem(STORAGE_KEYS.FOUNDER, JSON.stringify(parsed));
+        }
+        return parsed;
+      }
+      return initialFounderProfile;
     } catch {
       return initialFounderProfile;
     }

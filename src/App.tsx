@@ -54,8 +54,10 @@ export const App: React.FC = () => {
                 <Route path="/entrepreneurship" element={<Entrepreneurship />} />
                 <Route path="/publications" element={<Publications />} />
                 
-                {/* Dedicated Founder URL */}
+                {/* Dedicated Founder URLs */}
+                <Route path="/founder" element={<Founder />} />
                 <Route path="/founder/nikhilendra-srinivas" element={<Founder />} />
+                <Route path="/founder/*" element={<Founder />} />
                 <Route path="/contact" element={<Contact />} />
 
                 {/* Account & Member System */}
