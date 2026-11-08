@@ -13,7 +13,10 @@ export const initialFounderProfile: FounderProfile = {
   photoUrl: "/images/founder-portrait.jpg", // Clear architectural placeholder provided when empty
   biographySummary: "Nikhilendra Srinivas is the Founder and Pioneer of Cognisrin, an independent organisation committed to encouraging scientific inquiry, technological innovation, and disciplined entrepreneurial thinking across India and beyond.",
   fullBiography: "Nikhilendra Srinivas is an author, entrepreneur, and science enthusiast who established Cognisrin as an institutional platform to bridge theoretical scientific exploration with pragmatic technological innovation and entrepreneurial execution. Guided by first-principles inquiry and a lifelong dedication to scientific exploration, he has actively inspired emerging minds and researchers through extensive nationwide engagements.\n\nHaving delivered more than 600 lectures across academic institutions, public symposiums, and research forums throughout India, Nikhilendra has continually championed the democratization of scientific curiosity and rigorous innovation. His published works, including 'The Entrepreneur Genesis' and 'The Power Within – Quantum', reflect his dual commitment to foundational scientific inquiry and institutional value creation.",
-  educationalBackground: "Details on academic foundations and specialized study modules are maintained in archival records and can be configured through the verified administrative portal.",
+  dateOfBirth: "31-05-2008",
+  placeOfBirth: "Gadwal, Telangana",
+  currentInstitution: "Undergraduate Scholar, Osmania University",
+  educationalBackground: "Currently pursuing Undergraduate studies at Osmania University, Telangana. Actively engaged in theoretical physics exploration, enterprise development frameworks, and scientific lecturing nationwide.",
   personalJourney: "Driven by curiosity regarding fundamental physical principles and the mechanisms that translate scientific discoveries into societal wealth and institutional progress, Nikhilendra Srinivas formulated Cognisrin as an autonomous hub for multidisciplinary exploration. Over years of delivering hundreds of keynote lectures across India, he observed the acute necessity for an organisation that treats science, technological invention, and entrepreneurship not as isolated verticals, but as a continuous cycle of knowledge creation.",
   scientificInterests: [
     "Quantum Physics & Quantum Mechanics Foundations",
@@ -39,7 +42,7 @@ export const initialFounderProfile: FounderProfile = {
   socialLinks: {
     linkedin: "https://linkedin.com",
     twitter: "https://x.com",
-    email: "contact@cognisrin.in",
+    email: "nikhilendrasrinivas5@gmail.com",
     website: "https://cognisrin.in"
   },
   updatedAt: "2026-11-08"

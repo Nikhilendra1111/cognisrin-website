@@ -22,6 +22,9 @@ export interface FounderProfile {
   entrepreneurialInterests: string[];
   visionAndPhilosophy: string;
   achievements: string[];
+  dateOfBirth?: string;
+  placeOfBirth?: string;
+  currentInstitution?: string;
   socialLinks: {
     linkedin?: string;
     twitter?: string;

@@ -61,10 +61,14 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
       const stored = localStorage.getItem(STORAGE_KEYS.FOUNDER);
       if (stored) {
         const parsed: FounderProfile = JSON.parse(stored);
-        if (!parsed.photoUrl || parsed.photoUrl.trim() === '') {
-          parsed.photoUrl = initialFounderProfile.photoUrl;
-          localStorage.setItem(STORAGE_KEYS.FOUNDER, JSON.stringify(parsed));
-        }
+        parsed.dateOfBirth = initialFounderProfile.dateOfBirth;
+        parsed.placeOfBirth = initialFounderProfile.placeOfBirth;
+        parsed.currentInstitution = initialFounderProfile.currentInstitution;
+        parsed.educationalBackground = initialFounderProfile.educationalBackground;
+        if (!parsed.socialLinks) parsed.socialLinks = {};
+        parsed.socialLinks.email = "nikhilendrasrinivas5@gmail.com";
+        parsed.photoUrl = initialFounderProfile.photoUrl;
+        localStorage.setItem(STORAGE_KEYS.FOUNDER, JSON.stringify(parsed));
         return parsed;
       }
       return initialFounderProfile;

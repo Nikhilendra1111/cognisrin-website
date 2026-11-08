@@ -7,7 +7,11 @@ import {
   Briefcase,
   BookOpen,
   ShoppingBag,
-  ExternalLink
+  ExternalLink,
+  Calendar,
+  MapPin,
+  GraduationCap,
+  Mail
 } from 'lucide-react';
 import { useContent } from '../context/ContentContext';
 import { SEOHead } from '../components/common/SEOHead';
@@ -78,13 +82,58 @@ export const Founder: React.FC = () => {
               size="hero"
             />
 
-            <div className="w-full apple-card p-6 space-y-3">
-              <span className="text-[10px] uppercase font-mono tracking-wider text-[#0066cc] font-semibold">
-                Official Recognition
+            {/* Verified Biographical & Academic Profile */}
+            <div className="w-full apple-card p-6 space-y-4">
+              <span className="text-[10px] uppercase font-mono tracking-wider text-[#0066cc] font-semibold block border-b border-[rgba(0,0,0,0.06)] pb-2">
+                Biographical & Academic Information
               </span>
-              <p className="text-xs text-[#515154] leading-relaxed">
-                Pioneer of Cognisrin and leading advocate for deep-tech translation, scientific education, and high-impact enterprise across the Indian subcontinent.
-              </p>
+              
+              <div className="space-y-3.5 text-xs font-mono">
+                <div className="flex items-start gap-3">
+                  <div className="w-7 h-7 rounded-lg bg-[#ffffff] border border-[#d2d2d7] flex items-center justify-center text-[#0071e3] flex-shrink-0 shadow-2xs">
+                    <Calendar className="w-3.5 h-3.5" />
+                  </div>
+                  <div>
+                    <span className="text-[#86868b] block text-[10px] uppercase tracking-wider">Date of Birth</span>
+                    <span className="text-[#1d1d1f] font-semibold text-xs">31-05-2008</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="w-7 h-7 rounded-lg bg-[#ffffff] border border-[#d2d2d7] flex items-center justify-center text-[#0071e3] flex-shrink-0 shadow-2xs">
+                    <MapPin className="w-3.5 h-3.5" />
+                  </div>
+                  <div>
+                    <span className="text-[#86868b] block text-[10px] uppercase tracking-wider">Place of Birth</span>
+                    <span className="text-[#1d1d1f] font-semibold text-xs">Gadwal, Telangana</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="w-7 h-7 rounded-lg bg-[#ffffff] border border-[#d2d2d7] flex items-center justify-center text-[#0071e3] flex-shrink-0 shadow-2xs">
+                    <GraduationCap className="w-3.5 h-3.5" />
+                  </div>
+                  <div>
+                    <span className="text-[#86868b] block text-[10px] uppercase tracking-wider">Current Education</span>
+                    <span className="text-[#1d1d1f] font-semibold text-xs">Undergraduate, Osmania University</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 border-t border-[rgba(0,0,0,0.06)] pt-3">
+                  <div className="w-7 h-7 rounded-lg bg-[#ffffff] border border-[#d2d2d7] flex items-center justify-center text-[#0071e3] flex-shrink-0 shadow-2xs">
+                    <Mail className="w-3.5 h-3.5" />
+                  </div>
+                  <div>
+                    <span className="text-[#86868b] block text-[10px] uppercase tracking-wider">Direct Email</span>
+                    <a 
+                      href="mailto:nikhilendrasrinivas5@gmail.com" 
+                      className="text-[#0066cc] hover:underline font-semibold text-xs break-all"
+                    >
+                      nikhilendrasrinivas5@gmail.com
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
