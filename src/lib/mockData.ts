@@ -238,7 +238,7 @@ export const initialSiteSettings: SiteSettings = {
   tagline: "Advancing Science. Inspiring Innovation. Empowering Entrepreneurship.",
   supportingDescription: "An independent organisation dedicated to encouraging scientific exploration, technological innovation and entrepreneurial thinking.",
   officialDomain: "https://cognisrin.in",
-  officialEmail: "contact@cognisrin.in",
+  officialEmail: "nikhilendrasrinivas5@gmail.com",
   missionStatement: "To ignite rigorous scientific curiosity, cultivate pioneering engineering innovation, and empower entrepreneurial initiatives that solve foundational challenges and build long-term societal value.",
   visionStatement: "To establish an enduring global institution recognized for elevating scientific inquiry, nurturing visionary inventors, and translating discovery into technological and economic progress.",
   foundingPhilosophy: "Anchored in first-principles thinking and championed by Founder and Pioneer Nikhilendra Srinivas, Cognisrin operates on the principle that sustainable civilizational advancement requires an unbroken continuum between theoretical science, applied technology, and principled enterprise.",

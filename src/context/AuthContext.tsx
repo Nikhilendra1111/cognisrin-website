@@ -262,7 +262,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const toggleDemoAdmin = () => {
     const adminUser: UserProfile = {
       id: 'admin-nikhilendra',
-      email: 'founder@cognisrin.in',
+      email: 'nikhilendrasrinivas5@gmail.com',
       fullName: 'Nikhilendra Srinivas',
       role: 'admin',
       organization: 'Cognisrin',

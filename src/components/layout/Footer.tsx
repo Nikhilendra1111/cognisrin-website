@@ -81,7 +81,7 @@ export const Footer: React.FC = () => {
             </p>
             <div className="pt-2 text-[#6e6e73] space-y-1 text-[11px] font-mono">
               <p>Official Domain: <span className="text-[#1d1d1f]">cognisrin.in</span></p>
-              <p>Communications: <span className="text-[#1d1d1f]">contact@cognisrin.in</span></p>
+              <p>Direct Inquiries: <a href="mailto:nikhilendrasrinivas5@gmail.com" className="text-[#0066cc] hover:underline font-medium">nikhilendrasrinivas5@gmail.com</a></p>
             </div>
           </div>
 

@@ -79,7 +79,12 @@ export const Contact: React.FC = () => {
               <div className="space-y-4 text-xs font-mono">
                 <div className="p-4 rounded-2xl bg-[#ffffff] border border-[#d2d2d7] space-y-1">
                   <p className="text-[#86868b] text-[10px]">Primary Inquiries</p>
-                  <p className="text-sm font-semibold text-[#1d1d1f]">contact@cognisrin.in</p>
+                  <a 
+                    href="mailto:nikhilendrasrinivas5@gmail.com" 
+                    className="text-sm font-semibold text-[#0066cc] hover:underline break-all block"
+                  >
+                    nikhilendrasrinivas5@gmail.com
+                  </a>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-[#ffffff] border border-[#d2d2d7] space-y-1">

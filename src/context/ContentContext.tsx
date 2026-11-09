@@ -126,7 +126,13 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const [siteSettings, setSiteSettings] = useState<SiteSettings>(() => {
     try {
       const stored = localStorage.getItem(STORAGE_KEYS.SETTINGS);
-      return stored ? JSON.parse(stored) : initialSiteSettings;
+      if (stored) {
+        const parsed: SiteSettings = JSON.parse(stored);
+        parsed.officialEmail = "nikhilendrasrinivas5@gmail.com";
+        localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(parsed));
+        return parsed;
+      }
+      return initialSiteSettings;
     } catch {
       return initialSiteSettings;
     }

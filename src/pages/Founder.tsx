@@ -40,6 +40,7 @@ export const Founder: React.FC = () => {
       "@type": "CollegeOrUniversity",
       "name": "Osmania University"
     },
+    "email": "nikhilendrasrinivas5@gmail.com",
     "sameAs": [
       "https://www.amazon.com/author/nikhilendrasrinivas",
       "https://www.linkedin.com/in/nikhilendra-srinivas-b7a61528a"
