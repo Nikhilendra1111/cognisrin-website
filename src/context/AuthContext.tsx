@@ -119,7 +119,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }
 
       const founderUser: UserProfile = {
-        id: 'founder-nikhilendra',
+        id: '918ad400-4e81-4779-bc5a-a6a86720f412',
         email: 'nikhilendrasrinivas5@gmail.com',
         fullName: 'Nikhilendra Srinivas',
         role: 'admin',
@@ -130,13 +130,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setUser(founderUser);
       localStorage.setItem(LOCAL_STORAGE_USER_KEY, JSON.stringify(founderUser));
 
-      // Attempt live Supabase sync if credentials are set
+      // Connect to live Supabase Auth
       if (isSupabaseConfigured && supabase) {
         try {
-          await supabase.auth.signInWithPassword({
+          const authRes = await supabase.auth.signInWithPassword({
             email: cleanEmail,
             password: cleanPassword
           });
+          if (authRes.data?.user) {
+            await fetchSupabaseProfile(authRes.data.user.id, cleanEmail);
+          }
         } catch {
           // Session remains active
         }
@@ -173,17 +176,32 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const signUp = async (email: string, password?: string, fullName?: string, organization?: string): Promise<{ error?: string }> => {
+    const cleanEmail = email.trim().toLowerCase();
+    const cleanPassword = password ? password.trim() : 'Cognisrin123!';
+    const name = fullName ? fullName.trim() : cleanEmail.split('@')[0];
+
     if (isSupabaseConfigured && supabase) {
       const { data, error } = await supabase.auth.signUp({
-        email,
-        password: password || 'Cognisrin123!',
+        email: cleanEmail,
+        password: cleanPassword,
         options: {
-          data: { full_name: fullName || '', organization: organization || '' }
+          data: { full_name: name, organization: organization || '' }
         }
       });
       if (error) return { error: error.message };
       if (data.user) {
-        await fetchSupabaseProfile(data.user.id, data.user.email || '');
+        try {
+          await supabase.from('profiles').upsert({
+            id: data.user.id,
+            email: cleanEmail,
+            full_name: name,
+            role: 'member',
+            organization: organization || 'Member'
+          });
+        } catch {
+          // Ignore
+        }
+        await fetchSupabaseProfile(data.user.id, cleanEmail);
       }
       return {};
     }

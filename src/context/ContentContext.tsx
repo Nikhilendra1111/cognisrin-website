@@ -198,7 +198,7 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
       }
 
       // 3. Articles
-      const { data: artsData } = await supabase.from('science_articles').select('*').order('created_at', { ascending: false });
+      const { data: artsData } = await supabase.from('articles').select('*').order('created_at', { ascending: false });
       if (artsData && artsData.length > 0) {
         const mappedArts: ScienceArticle[] = artsData.map((a: any) => ({
           id: a.id,
@@ -218,7 +218,7 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
       }
 
       // 4. Projects
-      const { data: projData } = await supabase.from('innovation_projects').select('*').order('created_at', { ascending: false });
+      const { data: projData } = await supabase.from('projects').select('*').order('created_at', { ascending: false });
       if (projData && projData.length > 0) {
         const mappedProj: InnovationProject[] = projData.map((pr: any) => ({
           id: pr.id,
@@ -236,6 +236,23 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
         }));
         setProjects(mappedProj);
         localStorage.setItem(STORAGE_KEYS.PROJECTS, JSON.stringify(mappedProj));
+      }
+
+      // 5. Contact Messages
+      const { data: msgData } = await supabase.from('contact_messages').select('*').order('submitted_at', { ascending: false });
+      if (msgData && msgData.length > 0) {
+        const mappedMsgs: ContactMessage[] = msgData.map((m: any) => ({
+          id: m.id,
+          name: m.name,
+          email: m.email,
+          category: m.category,
+          subject: m.subject || 'Inquiry',
+          message: m.message,
+          submittedAt: m.submitted_at || new Date().toISOString(),
+          status: m.status || 'new'
+        }));
+        setContactMessages(mappedMsgs);
+        localStorage.setItem(STORAGE_KEYS.MESSAGES, JSON.stringify(mappedMsgs));
       }
     } catch {
       // Graceful fallback to cached/initial
@@ -342,7 +359,7 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
     localStorage.setItem(STORAGE_KEYS.ARTICLES, JSON.stringify(updated));
 
     if (isSupabaseConfigured && supabase) {
-      await supabase.from('science_articles').insert({
+      await supabase.from('articles').insert({
         title: art.title,
         slug: art.slug,
         category: art.category,
@@ -363,7 +380,7 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
     localStorage.setItem(STORAGE_KEYS.ARTICLES, JSON.stringify(updated));
 
     if (isSupabaseConfigured && supabase) {
-      await supabase.from('science_articles').update({
+      await supabase.from('articles').update({
         title: updates.title,
         slug: updates.slug,
         category: updates.category,
@@ -384,7 +401,7 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
     localStorage.setItem(STORAGE_KEYS.ARTICLES, JSON.stringify(updated));
 
     if (isSupabaseConfigured && supabase) {
-      await supabase.from('science_articles').delete().eq('id', id);
+      await supabase.from('articles').delete().eq('id', id);
     }
   };
 
@@ -397,7 +414,7 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
     localStorage.setItem(STORAGE_KEYS.PROJECTS, JSON.stringify(updated));
 
     if (isSupabaseConfigured && supabase) {
-      await supabase.from('innovation_projects').insert({
+      await supabase.from('projects').insert({
         title: proj.title,
         slug: proj.slug,
         category: proj.category,
@@ -419,7 +436,7 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
     localStorage.setItem(STORAGE_KEYS.PROJECTS, JSON.stringify(updated));
 
     if (isSupabaseConfigured && supabase) {
-      await supabase.from('innovation_projects').update({
+      await supabase.from('projects').update({
         title: updates.title,
         slug: updates.slug,
         category: updates.category,
@@ -441,7 +458,7 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
     localStorage.setItem(STORAGE_KEYS.PROJECTS, JSON.stringify(updated));
 
     if (isSupabaseConfigured && supabase) {
-      await supabase.from('innovation_projects').delete().eq('id', id);
+      await supabase.from('projects').delete().eq('id', id);
     }
   };
 
@@ -482,7 +499,7 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
     localStorage.setItem(STORAGE_KEYS.MESSAGES, JSON.stringify(updated));
 
     if (isSupabaseConfigured && supabase) {
-      await supabase.from('contact_submissions').insert({
+      await supabase.from('contact_messages').insert({
         name: msg.name,
         email: msg.email,
         subject: msg.subject,
