@@ -25,14 +25,30 @@ export const Founder: React.FC = () => {
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "https://www.cognisrin.in/#person",
     "name": founderProfile.fullName,
-    "jobTitle": founderProfile.designation,
-    "description": "Founder and Pioneer of Cognisrin, Author, Entrepreneur, and Science Enthusiast with 600+ lectures delivered across India.",
-    "url": "https://cognisrin.in/founder/nikhilendra-srinivas",
+    "jobTitle": "Founder of Cognisrin & Author",
+    "description": "Founder of Cognisrin, Author of 'The Entrepreneur Genesis' and 'The Power Within – Quantum', Entrepreneur, and Science Enthusiast with 600+ keynote lectures delivered across India.",
+    "url": "https://www.cognisrin.in/founder/nikhilendra-srinivas",
+    "image": "https://www.cognisrin.in/images/founder-portrait.jpg",
+    "birthDate": "2008-05-31",
+    "birthPlace": {
+      "@type": "Place",
+      "name": "Gadwal, Telangana, India"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Osmania University"
+    },
+    "sameAs": [
+      "https://www.amazon.com/author/nikhilendrasrinivas",
+      "https://www.linkedin.com/in/nikhilendra-srinivas-b7a61528a"
+    ],
     "worksFor": {
       "@type": "Organization",
+      "@id": "https://www.cognisrin.in/#organization",
       "name": "Cognisrin",
-      "url": "https://cognisrin.in"
+      "url": "https://www.cognisrin.in"
     },
     "knowsAbout": founderProfile.scientificInterests.concat(founderProfile.entrepreneurialInterests)
   };
@@ -130,6 +146,44 @@ export const Founder: React.FC = () => {
                       className="text-[#0066cc] hover:underline font-semibold text-xs break-all"
                     >
                       nikhilendrasrinivas5@gmail.com
+                    </a>
+                  </div>
+                </div>
+
+                {/* Verified Author Profile (rel="me noopener") */}
+                <div className="flex items-start gap-3 border-t border-[rgba(0,0,0,0.06)] pt-3">
+                  <div className="w-7 h-7 rounded-lg bg-[#ffffff] border border-[#d2d2d7] flex items-center justify-center text-[#0071e3] flex-shrink-0 shadow-2xs">
+                    <BookOpen className="w-3.5 h-3.5" />
+                  </div>
+                  <div>
+                    <span className="text-[#86868b] block text-[10px] uppercase tracking-wider">Amazon Author Page</span>
+                    <a 
+                      href="https://www.amazon.com/author/nikhilendrasrinivas"
+                      target="_blank"
+                      rel="me noopener"
+                      className="text-[#0066cc] hover:underline font-semibold text-xs flex items-center gap-1"
+                    >
+                      <span>amazon.com/author/nikhilendrasrinivas</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
+                </div>
+
+                {/* Verified LinkedIn Profile (rel="me noopener") */}
+                <div className="flex items-start gap-3 border-t border-[rgba(0,0,0,0.06)] pt-3">
+                  <div className="w-7 h-7 rounded-lg bg-[#ffffff] border border-[#d2d2d7] flex items-center justify-center text-[#0071e3] flex-shrink-0 shadow-2xs">
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </div>
+                  <div>
+                    <span className="text-[#86868b] block text-[10px] uppercase tracking-wider">LinkedIn Profile</span>
+                    <a 
+                      href="https://www.linkedin.com/in/nikhilendra-srinivas-b7a61528a"
+                      target="_blank"
+                      rel="me noopener"
+                      className="text-[#0066cc] hover:underline font-semibold text-xs flex items-center gap-1"
+                    >
+                      <span>linkedin.com/in/nikhilendra-srinivas</span>
+                      <ExternalLink className="w-3 h-3" />
                     </a>
                   </div>
                 </div>

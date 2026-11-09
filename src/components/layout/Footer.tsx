@@ -28,6 +28,28 @@ export const Footer: React.FC = () => {
               <p className="text-xs text-[#86868b] mt-0.5">
                 Author, Entrepreneur and Science Enthusiast • {founderProfile.lecturesMilestoneText}
               </p>
+              {/* Visible Verified Profile Links with Identity Verification (rel="me noopener") */}
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5 pt-2 text-[11px] font-mono">
+                <span className="text-[#86868b] text-[10px] uppercase tracking-wider font-semibold">Verified Profiles:</span>
+                <a
+                  href="https://www.amazon.com/author/nikhilendrasrinivas"
+                  target="_blank"
+                  rel="me noopener"
+                  className="text-[#0066cc] hover:underline flex items-center gap-1 font-medium bg-[#ffffff] px-2.5 py-0.5 rounded-full border border-[#d2d2d7] shadow-2xs"
+                >
+                  <span>Amazon Author Page</span>
+                  <ArrowUpRight className="w-3 h-3 text-[#0066cc]" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/nikhilendra-srinivas-b7a61528a"
+                  target="_blank"
+                  rel="me noopener"
+                  className="text-[#0066cc] hover:underline flex items-center gap-1 font-medium bg-[#ffffff] px-2.5 py-0.5 rounded-full border border-[#d2d2d7] shadow-2xs"
+                >
+                  <span>LinkedIn Profile</span>
+                  <ArrowUpRight className="w-3 h-3 text-[#0066cc]" />
+                </a>
+              </div>
             </div>
           </div>
 

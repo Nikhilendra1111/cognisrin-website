@@ -32,51 +32,70 @@
     <!-- Google Search Console verification placeholder -->
     <meta name="google-site-verification" content="COGNISRIN_SEARCH_CONSOLE_VERIFICATION_PLACEHOLDER" />
 
+    <!-- Author & Social Relationship Meta Tags for Google Knowledge Graph -->
+    <meta property="og:see_also" content="https://www.amazon.com/author/nikhilendrasrinivas" />
+    <meta property="og:see_also" content="https://www.linkedin.com/in/nikhilendra-srinivas-b7a61528a" />
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- JSON-LD Structured Data: Organization & Founder -->
+    <!-- JSON-LD Structured Data: Schema.org Knowledge Graph (Person & Organization) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "Organization",
-          "@id": "https://cognisrin.in/#organization",
-          "name": "Cognisrin",
-          "url": "https://cognisrin.in",
-          "logo": "https://cognisrin.in/favicon.svg",
-          "description": "An independent organisation dedicated to encouraging scientific exploration, technological innovation, and entrepreneurial thinking.",
-          "founder": {
-            "@type": "Person",
-            "@id": "https://cognisrin.in/founder/nikhilendra-srinivas#founder",
-            "name": "Nikhilendra Srinivas",
-            "jobTitle": "Founder and Pioneer of Cognisrin",
-            "description": "Author, Entrepreneur and Science Enthusiast. Delivered 600+ lectures across India.",
-            "url": "https://cognisrin.in/founder/nikhilendra-srinivas",
-            "sameAs": []
+          "@type": "Person",
+          "@id": "https://www.cognisrin.in/#person",
+          "name": "Nikhilendra Srinivas",
+          "jobTitle": "Founder of Cognisrin & Author",
+          "description": "Founder of Cognisrin, Author of 'The Entrepreneur Genesis' and 'The Power Within – Quantum', Entrepreneur, and Science Enthusiast with 600+ keynote lectures delivered across India.",
+          "url": "https://www.cognisrin.in/founder/nikhilendra-srinivas",
+          "image": "https://www.cognisrin.in/images/founder-portrait.jpg",
+          "birthDate": "2008-05-31",
+          "birthPlace": {
+            "@type": "Place",
+            "name": "Gadwal, Telangana, India"
           },
-          "knowsAbout": [
-            "Science",
-            "Innovation",
-            "Entrepreneurship",
-            "Quantum Physics",
-            "Nuclear Science",
-            "Nanotechnology"
-          ]
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Osmania University"
+          },
+          "sameAs": [
+            "https://www.amazon.com/author/nikhilendrasrinivas",
+            "https://www.linkedin.com/in/nikhilendra-srinivas-b7a61528a"
+          ],
+          "worksFor": {
+            "@id": "https://www.cognisrin.in/#organization"
+          }
         },
         {
-          "@type": "Person",
-          "@id": "https://cognisrin.in/founder/nikhilendra-srinivas#founder",
-          "name": "Nikhilendra Srinivas",
-          "jobTitle": "Founder and Pioneer of Cognisrin",
-          "worksFor": {
-            "@id": "https://cognisrin.in/#organization"
+          "@type": "Organization",
+          "@id": "https://www.cognisrin.in/#organization",
+          "name": "Cognisrin",
+          "alternateName": "COGNISRIN",
+          "url": "https://www.cognisrin.in",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.cognisrin.in/images/cognisrin-logo.png"
           },
-          "url": "https://cognisrin.in/founder/nikhilendra-srinivas",
-          "description": "Founder and Pioneer of Cognisrin, Author, Entrepreneur, and Science Enthusiast with 600+ lectures delivered across India."
+          "description": "An independent organisation founded and pioneered by Nikhilendra Srinivas, dedicated to encouraging scientific exploration, technological innovation, and entrepreneurial thinking.",
+          "founder": {
+            "@id": "https://www.cognisrin.in/#person"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/in/nikhilendra-srinivas-b7a61528a"
+          ],
+          "knowsAbout": [
+            "Scientific Research",
+            "Theoretical & Quantum Physics",
+            "Nuclear Science",
+            "Nanotechnology",
+            "Deep Technology Innovation",
+            "Entrepreneurial Venture Creation"
+          ]
         }
       ]
     }

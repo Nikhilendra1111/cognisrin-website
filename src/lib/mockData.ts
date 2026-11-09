@@ -40,7 +40,8 @@ export const initialFounderProfile: FounderProfile = {
     "Founder and Pioneer of Cognisrin: establishing an independent scientific and innovation ecosystem"
   ],
   socialLinks: {
-    linkedin: "https://linkedin.com",
+    linkedin: "https://www.linkedin.com/in/nikhilendra-srinivas-b7a61528a",
+    amazon: "https://www.amazon.com/author/nikhilendrasrinivas",
     twitter: "https://x.com",
     email: "nikhilendrasrinivas5@gmail.com",
     website: "https://cognisrin.in"

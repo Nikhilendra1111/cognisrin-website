@@ -27,6 +27,7 @@ export interface FounderProfile {
   currentInstitution?: string;
   socialLinks: {
     linkedin?: string;
+    amazon?: string;
     twitter?: string;
     email?: string;
     researchgate?: string;

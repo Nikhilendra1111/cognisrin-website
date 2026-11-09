@@ -4,6 +4,7 @@ import {
   Target, 
   Compass, 
   ChevronRight,
+  ArrowUpRight,
   ShieldCheck,
   CheckCircle2,
   Atom,
@@ -136,6 +137,26 @@ export const About: React.FC = () => {
             <p className="text-[10px] uppercase font-mono text-[#0066cc] font-semibold">Leadership</p>
             <h4 className="text-xl font-semibold text-[#1d1d1f]">{founderProfile.fullName}</h4>
             <p className="text-xs text-[#86868b]">{founderProfile.designation} • {founderProfile.lecturesMilestoneText}</p>
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 pt-2 text-[11px] font-mono">
+              <a
+                href="https://www.amazon.com/author/nikhilendrasrinivas"
+                target="_blank"
+                rel="me noopener"
+                className="text-[#0066cc] hover:underline flex items-center gap-1 font-medium bg-[#ffffff] px-2.5 py-0.5 rounded-full border border-[#d2d2d7]"
+              >
+                <span>Amazon Author</span>
+                <ArrowUpRight className="w-3 h-3 text-[#0066cc]" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/nikhilendra-srinivas-b7a61528a"
+                target="_blank"
+                rel="me noopener"
+                className="text-[#0066cc] hover:underline flex items-center gap-1 font-medium bg-[#ffffff] px-2.5 py-0.5 rounded-full border border-[#d2d2d7]"
+              >
+                <span>LinkedIn</span>
+                <ArrowUpRight className="w-3 h-3 text-[#0066cc]" />
+              </a>
+            </div>
           </div>
           <Link
             to="/founder/nikhilendra-srinivas"
