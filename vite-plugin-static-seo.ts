@@ -7,7 +7,7 @@
  * crawlers that don't execute JavaScript still see unique, indexable content.
  */
 
-import { Plugin } from 'vite';
+import type { Plugin } from 'vite';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -226,7 +226,7 @@ export default function staticSeoPlugin(): Plugin {
     enforce: 'post',
 
     closeBundle() {
-      const distDir = path.resolve(__dirname, 'dist');
+      const distDir = path.resolve(import.meta.dirname || process.cwd(), 'dist');
       const indexHtmlPath = path.join(distDir, 'index.html');
 
       if (!fs.existsSync(indexHtmlPath)) {

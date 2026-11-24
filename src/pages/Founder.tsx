@@ -11,7 +11,8 @@ import {
   Calendar,
   MapPin,
   GraduationCap,
-  Mail
+  Mail,
+  FileText
 } from 'lucide-react';
 import { useContent } from '../context/ContentContext';
 import { SEOHead } from '../components/common/SEOHead';

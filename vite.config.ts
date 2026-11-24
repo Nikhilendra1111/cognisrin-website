@@ -1,6 +1,6 @@
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
-import staticSeoPlugin from './vite-plugin-static-seo'
+import staticSeoPlugin from './vite-plugin-static-seo.ts'
 
 // https://vite.dev/config/
 export default defineConfig({
