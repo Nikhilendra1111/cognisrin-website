@@ -1,4 +1,4 @@
-import { FounderProfile, Publication, ScienceArticle, InnovationProject, SiteSettings } from '../types';
+import { FounderProfile, Publication, ResearchPublication, ScienceArticle, InnovationProject, SiteSettings } from '../types';
 
 export const initialFounderProfile: FounderProfile = {
   fullName: "Nikhilendra Srinivas",
@@ -42,6 +42,7 @@ export const initialFounderProfile: FounderProfile = {
   socialLinks: {
     linkedin: "https://www.linkedin.com/in/nikhilendra-srinivas-b7a61528a",
     amazon: "https://www.amazon.com/author/nikhilendrasrinivas",
+    orcid: "https://orcid.org/0009-0001-7107-9241",
     twitter: "https://x.com",
     email: "nikhilendrasrinivas5@gmail.com",
     website: "https://cognisrin.in"
@@ -77,6 +78,36 @@ export const initialPublications: Publication[] = [
     isbn: "Available via official publisher channels",
     featured: true,
     notes: "Official work authored by Nikhilendra Srinivas, Founder and Pioneer of Cognisrin."
+  }
+];
+
+export const initialResearchPublications: ResearchPublication[] = [
+  {
+    id: "res-pub-1",
+    title: "Computational Investigation of the H₂⁺ Molecular Ion: LCAO Approximation, Gaussian Basis-Set Convergence, and Independent Benchmark Validation",
+    author: "Nikhilendra Srinivas",
+    orcid: "0009-0001-7107-9241",
+    orcidUrl: "https://orcid.org/0009-0001-7107-9241",
+    doi: "10.5281/zenodo.24498507",
+    doiUrl: "https://doi.org/10.5281/zenodo.24498507",
+    repository: "Zenodo",
+    publicationType: "Preprint",
+    year: 2026,
+    abstract: "This computational study investigates the hydrogen molecular ion (H₂⁺) through molecular orbital theory, examining the minimal LCAO approximation, Gaussian basis-set comparisons, basis-set convergence, molecular dissociation behaviour, and independent validation against high-accuracy Riccati–Padé benchmark data.",
+    tags: [
+      "Molecular Orbital Theory",
+      "LCAO Approximation",
+      "Gaussian Basis Sets",
+      "H₂⁺ Molecular Ion",
+      "Riccati–Padé Benchmark",
+      "Computational Quantum Chemistry"
+    ],
+    subjects: [
+      "Atomic & Molecular Physics",
+      "Quantum Chemistry",
+      "Computational Physics"
+    ],
+    citation: "Srinivas, N. (2026). Computational Investigation of the H₂⁺ Molecular Ion: LCAO Approximation, Gaussian Basis-Set Convergence, and Independent Benchmark Validation. Zenodo. https://doi.org/10.5281/zenodo.24498507"
   }
 ];
 

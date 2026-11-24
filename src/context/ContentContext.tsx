@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import {
   FounderProfile,
   Publication,
+  ResearchPublication,
   ScienceArticle,
   InnovationProject,
   SiteSettings,
@@ -10,6 +11,7 @@ import {
 import {
   initialFounderProfile,
   initialPublications,
+  initialResearchPublications,
   initialArticles,
   initialInnovationProjects,
   initialSiteSettings
@@ -19,6 +21,7 @@ import { supabase, isSupabaseConfigured } from '../lib/supabase';
 interface ContentContextType {
   founderProfile: FounderProfile;
   publications: Publication[];
+  researchPublications: ResearchPublication[];
   articles: ScienceArticle[];
   projects: InnovationProject[];
   siteSettings: SiteSettings;
@@ -49,6 +52,7 @@ const ContentContext = createContext<ContentContextType | undefined>(undefined);
 const STORAGE_KEYS = {
   FOUNDER: 'cognisrin_data_founder',
   PUBLICATIONS: 'cognisrin_data_publications',
+  RESEARCH: 'cognisrin_data_research',
   ARTICLES: 'cognisrin_data_articles',
   PROJECTS: 'cognisrin_data_projects',
   SETTINGS: 'cognisrin_data_settings',
@@ -67,6 +71,7 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
         parsed.educationalBackground = initialFounderProfile.educationalBackground;
         if (!parsed.socialLinks) parsed.socialLinks = {};
         parsed.socialLinks.email = "nikhilendrasrinivas5@gmail.com";
+        parsed.socialLinks.orcid = initialFounderProfile.socialLinks.orcid;
         parsed.photoUrl = initialFounderProfile.photoUrl;
         localStorage.setItem(STORAGE_KEYS.FOUNDER, JSON.stringify(parsed));
         return parsed;
@@ -102,6 +107,19 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
       return initialPublications;
     } catch {
       return initialPublications;
+    }
+  });
+
+  const [researchPublications] = useState<ResearchPublication[]>(() => {
+    try {
+      const stored = localStorage.getItem(STORAGE_KEYS.RESEARCH);
+      if (stored) {
+        const parsed: ResearchPublication[] = JSON.parse(stored);
+        if (parsed.length > 0) return parsed;
+      }
+      return initialResearchPublications;
+    } catch {
+      return initialResearchPublications;
     }
   });
 
@@ -535,6 +553,7 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
       value={{
         founderProfile,
         publications,
+        researchPublications,
         articles,
         projects,
         siteSettings,

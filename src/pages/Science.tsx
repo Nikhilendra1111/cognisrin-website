@@ -5,7 +5,9 @@ import {
   Clock, 
   ChevronRight, 
   X,
-  FileText
+  FileText,
+  ExternalLink,
+  ArrowUpRight
 } from 'lucide-react';
 import { useContent } from '../context/ContentContext';
 import { SEOHead } from '../components/common/SEOHead';
@@ -22,7 +24,7 @@ const CATEGORIES: ScienceCategory[] = [
 ];
 
 export const Science: React.FC = () => {
-  const { articles } = useContent();
+  const { articles, researchPublications } = useContent();
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [activeArticle, setActiveArticle] = useState<ScienceArticle | null>(null);
@@ -58,6 +60,78 @@ export const Science: React.FC = () => {
           </p>
         </div>
       </section>
+
+      {/* Featured Research Publication Callout */}
+      {researchPublications && researchPublications.length > 0 && (
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="apple-card p-6 sm:p-8 border border-[#d2d2d7] bg-[#fbfbfd] space-y-4">
+            <div className="flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+              <div className="flex items-center gap-2">
+                <span className="px-2.5 py-0.5 rounded-full bg-[#ffffff] text-[#0066cc] font-semibold border border-[#d2d2d7] text-[10px] uppercase tracking-wider">
+                  FEATURED RESEARCH PREPRINT
+                </span>
+                <span className="text-[#86868b] text-[11px]">
+                  {researchPublications[0].repository} • {researchPublications[0].year}
+                </span>
+              </div>
+              <a
+                href={researchPublications[0].orcidUrl}
+                target="_blank"
+                rel="me noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs text-[#1d1d1f] hover:text-[#0066cc]"
+              >
+                <span className="w-3.5 h-3.5 rounded-full bg-[#A6CE39] text-white flex items-center justify-center font-bold text-[8px] leading-none">
+                  iD
+                </span>
+                <span>Author: {researchPublications[0].author} (ORCID: {researchPublications[0].orcid})</span>
+              </a>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-xl sm:text-2xl font-semibold text-[#1d1d1f] tracking-tight">
+                {researchPublications[0].title}
+              </h3>
+              <p className="text-xs sm:text-sm text-[#515154] leading-relaxed max-w-4xl">
+                {researchPublications[0].abstract}
+              </p>
+            </div>
+
+            <div className="pt-2 flex flex-wrap items-center justify-between gap-3 text-xs">
+              <div className="flex flex-wrap items-center gap-2 font-mono">
+                <span className="text-[#86868b]">DOI:</span>
+                <a
+                  href={researchPublications[0].doiUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#0066cc] hover:underline font-semibold inline-flex items-center gap-1"
+                >
+                  <span>https://doi.org/{researchPublications[0].doi}</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <a
+                  href={researchPublications[0].doiUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="apple-btn-primary px-4 py-1.5 text-xs inline-flex items-center gap-1.5"
+                >
+                  <span>Access on Zenodo</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+                <Link
+                  to="/publications#research"
+                  className="apple-link text-xs inline-flex items-center gap-1"
+                >
+                  <span>View in Research Directorate</span>
+                  <ArrowUpRight className="w-3 h-3" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Category Pills & Search */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">

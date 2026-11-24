@@ -49,6 +49,19 @@ export const Footer: React.FC = () => {
                   <span>LinkedIn Profile</span>
                   <ArrowUpRight className="w-3 h-3 text-[#0066cc]" />
                 </a>
+                <a
+                  href="https://orcid.org/0009-0001-7107-9241"
+                  target="_blank"
+                  rel="me noopener noreferrer"
+                  className="text-[#0066cc] hover:underline flex items-center gap-1.5 font-medium bg-[#ffffff] px-2.5 py-0.5 rounded-full border border-[#d2d2d7] shadow-2xs"
+                  title="Verified ORCID Researcher Profile"
+                >
+                  <span className="w-3.5 h-3.5 rounded-full bg-[#A6CE39] text-white flex items-center justify-center font-bold text-[8px] leading-none">
+                    iD
+                  </span>
+                  <span>ORCID: 0009-0001-7107-9241</span>
+                  <ArrowUpRight className="w-3 h-3 text-[#0066cc]" />
+                </a>
               </div>
             </div>
           </div>
@@ -102,6 +115,7 @@ export const Footer: React.FC = () => {
               Works & Archive
             </h4>
             <ul className="space-y-2 text-[#6e6e73]">
+              <li><Link to="/publications#research" className="hover:text-[#0066cc] font-medium text-[#1d1d1f] transition-colors">Research Publications (Preprint)</Link></li>
               <li><Link to="/publications" className="hover:text-[#1d1d1f] transition-colors">The Entrepreneur Genesis</Link></li>
               <li><Link to="/publications" className="hover:text-[#1d1d1f] transition-colors">The Power Within – Quantum</Link></li>
               <li><Link to="/publications" className="hover:text-[#1d1d1f] transition-colors">All Publications</Link></li>

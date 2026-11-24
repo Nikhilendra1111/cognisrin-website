@@ -88,8 +88,13 @@ const ROUTES: RouteMetadata[] = [
         <li>The Entrepreneur Genesis — Foundational guide on scientific-driven venture creation</li>
         <li>The Power Within – Quantum — Deep dive into quantum technologies</li>
       </ul>
+      <h2>Research Publications & Preprints</h2>
+      <ul>
+        <li><strong>Computational Investigation of the H₂⁺ Molecular Ion: LCAO Approximation, Gaussian Basis-Set Convergence, and Independent Benchmark Validation</strong> (Preprint, 2026) — DOI: <a href="https://doi.org/10.5281/zenodo.24498507" target="_blank" rel="noopener noreferrer">10.5281/zenodo.24498507</a></li>
+      </ul>
       <h2>Professional Profiles</h2>
       <ul>
+        <li><a href="https://orcid.org/0009-0001-7107-9241" rel="me noopener noreferrer" target="_blank">ORCID Researcher Profile (0009-0001-7107-9241)</a></li>
         <li><a href="https://www.amazon.com/author/nikhilendrasrinivas" rel="me noopener" target="_blank">Amazon Author Page</a></li>
         <li><a href="https://www.linkedin.com/in/nikhilendra-srinivas-b7a61528a" rel="me noopener" target="_blank">LinkedIn Profile</a></li>
       </ul>
@@ -138,15 +143,27 @@ const ROUTES: RouteMetadata[] = [
   },
   {
     path: '/publications',
-    title: 'Publications — Books by Nikhilendra Srinivas | COGNISRIN',
-    description: 'Official publications authored by Nikhilendra Srinivas, Founder and Pioneer of Cognisrin, including The Entrepreneur Genesis and The Power Within – Quantum.',
+    title: 'Research Publications & Books by Nikhilendra Srinivas | COGNISRIN',
+    description: 'Official research preprints, computational physics papers, and published books authored by Nikhilendra Srinivas, Founder and Pioneer of Cognisrin.',
     priority: 0.85,
     noscriptContent: `
-      <h1>Publications by Nikhilendra Srinivas</h1>
-      <h2>The Entrepreneur Genesis</h2>
-      <p>A foundational guide examining scientific-driven venture creation, first-principles entrepreneurial thinking, and institutional value building.</p>
-      <h2>The Power Within – Quantum</h2>
-      <p>An exploration of quantum technologies, fundamental physical dynamics, and their commercial and scientific potential.</p>
+      <h1>Publications & Research by Nikhilendra Srinivas</h1>
+      <h2>Research Publications & Preprints</h2>
+      <article>
+        <h3>Computational Investigation of the H₂⁺ Molecular Ion: LCAO Approximation, Gaussian Basis-Set Convergence, and Independent Benchmark Validation</h3>
+        <p><strong>Author:</strong> Nikhilendra Srinivas (Founder of Cognisrin)</p>
+        <p><strong>Publication Type:</strong> Scholarly Preprint (Year: 2026)</p>
+        <p><strong>Repository:</strong> Zenodo</p>
+        <p><strong>Permanent DOI:</strong> <a href="https://doi.org/10.5281/zenodo.24498507" target="_blank" rel="noopener noreferrer">https://doi.org/10.5281/zenodo.24498507</a></p>
+        <p><strong>ORCID Profile:</strong> <a href="https://orcid.org/0009-0001-7107-9241" target="_blank" rel="me noopener noreferrer">https://orcid.org/0009-0001-7107-9241</a></p>
+        <p><strong>Abstract:</strong> This computational study investigates the hydrogen molecular ion (H₂⁺) through molecular orbital theory, examining the minimal LCAO approximation, Gaussian basis-set comparisons, basis-set convergence, molecular dissociation behaviour, and independent validation against high-accuracy Riccati–Padé benchmark data.</p>
+      </article>
+
+      <h2>Authored Books & Monographs</h2>
+      <ul>
+        <li><strong>The Entrepreneur Genesis</strong> — A foundational guide examining scientific-driven venture creation, first-principles entrepreneurial thinking, and institutional value building.</li>
+        <li><strong>The Power Within – Quantum</strong> — An exploration of quantum technologies, fundamental physical dynamics, and their commercial and scientific potential.</li>
+      </ul>
       <p>Both works are authored by Nikhilendra Srinivas, Founder and Pioneer of Cognisrin.</p>
       <p><a href="https://www.amazon.com/author/nikhilendrasrinivas" rel="me noopener" target="_blank">View on Amazon Author Page</a></p>
     `

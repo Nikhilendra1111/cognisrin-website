@@ -20,7 +20,7 @@ import { LectureMilestoneBadge } from '../components/common/LectureMilestoneBadg
 import { BookCoverPlaceholder } from '../components/common/BookCoverPlaceholder';
 
 export const Founder: React.FC = () => {
-  const { founderProfile, publications } = useContent();
+  const { founderProfile, publications, researchPublications } = useContent();
 
   const personSchema = {
     "@context": "https://schema.org",
@@ -42,6 +42,7 @@ export const Founder: React.FC = () => {
     },
     "email": "nikhilendrasrinivas5@gmail.com",
     "sameAs": [
+      "https://orcid.org/0009-0001-7107-9241",
       "https://www.amazon.com/author/nikhilendrasrinivas",
       "https://www.linkedin.com/in/nikhilendra-srinivas-b7a61528a"
     ],
@@ -188,6 +189,27 @@ export const Founder: React.FC = () => {
                     </a>
                   </div>
                 </div>
+
+                {/* Verified ORCID Researcher Profile (rel="me noopener") */}
+                <div className="flex items-start gap-3 border-t border-[rgba(0,0,0,0.06)] pt-3">
+                  <div className="w-7 h-7 rounded-lg bg-[#ffffff] border border-[#d2d2d7] flex items-center justify-center flex-shrink-0 shadow-2xs">
+                    <span className="w-4 h-4 rounded-full bg-[#A6CE39] text-white flex items-center justify-center font-bold text-[8px] leading-none">
+                      iD
+                    </span>
+                  </div>
+                  <div>
+                    <span className="text-[#86868b] block text-[10px] uppercase tracking-wider">ORCID Researcher iD</span>
+                    <a 
+                      href="https://orcid.org/0009-0001-7107-9241"
+                      target="_blank"
+                      rel="me noopener noreferrer"
+                      className="text-[#0066cc] hover:underline font-semibold text-xs flex items-center gap-1"
+                    >
+                      <span>0009-0001-7107-9241</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -259,6 +281,94 @@ export const Founder: React.FC = () => {
           lecturesCount={founderProfile.lecturesCount}
           milestoneText={founderProfile.lecturesMilestoneText}
         />
+
+        {/* Research Publications & Preprints Section */}
+        <div className="space-y-8">
+          <div className="text-center space-y-2">
+            <span className="text-xs uppercase font-mono tracking-widest text-[#0066cc] font-semibold">
+              SCHOLARLY PREPRINTS & RESEARCH
+            </span>
+            <h2 className="text-3xl font-semibold text-[#1d1d1f] tracking-tight">
+              Research Publications
+            </h2>
+            <p className="text-xs text-[#86868b] max-w-xl mx-auto">
+              Fundamental computational investigations authored by Nikhilendra Srinivas, registered with permanent Digital Object Identifiers (DOIs).
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {researchPublications.map((paper) => (
+              <div key={paper.id} className="apple-card p-8 border border-[#d2d2d7] space-y-5">
+                <div className="flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[#0066cc] font-semibold border border-[#d2d2d7] text-[10px] uppercase">
+                      {paper.publicationType}
+                    </span>
+                    <span className="px-2.5 py-0.5 rounded-full bg-[#f5f5f7] text-[#515154] border border-[#d2d2d7] text-[10px]">
+                      {paper.repository}
+                    </span>
+                    <span className="text-[#86868b] text-[11px]">
+                      Year: {paper.year}
+                    </span>
+                  </div>
+                  <a
+                    href={paper.orcidUrl}
+                    target="_blank"
+                    rel="me noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs text-[#0066cc] hover:underline"
+                  >
+                    <span className="w-3.5 h-3.5 rounded-full bg-[#A6CE39] text-white flex items-center justify-center font-bold text-[8px] leading-none">
+                      iD
+                    </span>
+                    <span>ORCID: {paper.orcid}</span>
+                  </a>
+                </div>
+
+                <div className="space-y-2">
+                  <h3 className="text-xl font-semibold text-[#1d1d1f] tracking-tight">
+                    {paper.title}
+                  </h3>
+                  <p className="text-xs text-[#1d1d1f] font-semibold">
+                    Author: <span className="text-[#0066cc]">{paper.author}</span>
+                  </p>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-[#f5f5f7] border border-[#d2d2d7] flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono">
+                  <span className="text-[#86868b]">Permanent DOI:</span>
+                  <a
+                    href={paper.doiUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#0066cc] hover:underline font-semibold break-all inline-flex items-center gap-1"
+                  >
+                    <span>https://doi.org/{paper.doi}</span>
+                    <ExternalLink className="w-3 h-3 flex-shrink-0" />
+                  </a>
+                </div>
+
+                <p className="text-xs text-[#515154] leading-relaxed bg-[#ffffff] p-4 rounded-xl border border-[#e5e5ea]">
+                  {paper.abstract}
+                </p>
+
+                <div className="pt-2 flex flex-wrap items-center justify-between gap-3">
+                  <a
+                    href={paper.doiUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="apple-btn-primary px-4 py-2 text-xs font-medium inline-flex items-center gap-1.5"
+                  >
+                    <FileText className="w-3.5 h-3.5" />
+                    <span>View Record via DOI (Zenodo)</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                  <Link to="/publications#research" className="apple-link text-xs">
+                    View Full Publication Archive <ChevronRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* Authored Books Section */}
         <div className="space-y-8">

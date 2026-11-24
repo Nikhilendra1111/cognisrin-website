@@ -28,6 +28,7 @@ export interface FounderProfile {
   socialLinks: {
     linkedin?: string;
     amazon?: string;
+    orcid?: string;
     twitter?: string;
     email?: string;
     researchgate?: string;
@@ -49,6 +50,24 @@ export interface Publication {
   isbn?: string;
   featured: boolean;
   notes?: string;
+}
+
+export interface ResearchPublication {
+  id: string;
+  title: string;
+  author: string; // Nikhilendra Srinivas
+  orcid: string;
+  orcidUrl: string;
+  doi: string;
+  doiUrl: string;
+  repository: string;
+  publicationType: 'Preprint';
+  year: number | string;
+  abstract: string;
+  tags?: string[];
+  subjects?: string[];
+  license?: string;
+  citation?: string;
 }
 
 export interface ScienceArticle {
